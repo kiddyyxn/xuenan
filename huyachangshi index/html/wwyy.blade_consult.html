@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- <meta name="description" content="Kanzi HTML5 Template"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>问问牙医_我要咨询</title>
+<link rel="stylesheet" href="../css/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css"/>
+<script type="text/javascript" src="../js/js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/validate.js"></script>
+<script>
+    $(function(){
+    var tabnavL=$('.tabnav').length;
+    var tabL=$('.tab').length;
+  
+         $('.tabnav').click(function(){
+            var num = $(this).index();
+            $('.tabnav').removeClass('active');
+            $(this).addClass('active');
+            $('.tab').removeClass('active');
+            $('.tab').eq(num).addClass('active');
+         })
+
+
+         var imgW = $('.list img').width();
+         $('.list img').css('height',imgW);
+         
+         /*弹出上传图片弹出层*/
+        $(".addimg-label i.fa-plus-square-o").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+          e.stopPropagation();
+        }else{
+          e.cancelBubble = true;
+        }   
+          $(this).removeClass("fa-plus-square-o").addClass("fa-plus-square");
+          $("#popbox").animate({bottom:"0"});
+        });
+
+        $("#popbox").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+          e.stopPropagation();
+        }else{
+          e.cancelBubble = true;
+        }
+        });
+        document.onclick = function(){
+
+          $(".addimg-label i.fa-plus-square").removeClass("fa-plus-square").addClass("fa-plus-square-o");
+          $("#popbox").animate({bottom:"-102px"});
+        };
+       /*弹出上传图片弹出层*/
+        
+    })
+
+
+</script>
+
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-xs-12 ">
+          <h4 class="   relative text-center border-b-02 padding-b-02"><i class="fa fa-angle-left absolute absolute06 font-size-36"></i><b>我要咨询</b></h4>
+        </div>
+      </div>
+      
+      
+
+      <div class="row">
+         <div class="col-sm-3 col-xs-3 line-height-32">
+          您正在向
+         </div>
+         <div class="col-sm-9 col-xs-9 ">
+           <form name="F1" id="hd-form">
+            <select  id="hospital" class="hd" NAME="select1" onChange="set_list(this.options.selectedIndex)">
+              <option selected>医院一</option>
+              <option>医院二</option>
+              <option>医院三</option>
+            </select>
+            <select  id="hospital" class="hd" NAME="select2" >  
+              <option selected>医生11</option> 
+              <option>医生12</option>
+              <option>医生13</option>
+            </select>
+             
+            <script language="JavaScript"> 
+            var l=document.F1.select1.options.length;
+            //取得第一下拉菜单的选项数目
+            var group=new Array(l)
+            //根据这个数目创建数组
+            for (i=0; i<l; i++)
+            //上一个数组的每一个元素也是数组
+            group[i]=new Array() 
+            //接下来创建选项，为第二下拉菜单定义内容
+          /*  group[0][0]=new Option("医生11","#") 
+            group[0][1]=new Option("医生12","#") 
+            group[0][2]=new Option("医生13","#") */
+             
+            group[1][0]=new Option("医生21","/jscss") 
+            group[1][1]=new Option("医生22","#") 
+             
+            group[2][0]=new Option("医生31","http://www.newhua.com") 
+            group[2][1]=new Option("医生32 ","http://it.sohu.com/download/") 
+            group[2][2]=new Option("医生33","http://www.download.com.cn") 
+             
+            var selobj=document.F1.select2; //设定需要动态改变的对象是第二下拉菜单
+              
+            function set_list(x) //x表示第一菜单被选定的内容
+            { 
+          /*  for (m=selobj.options.length-1;m>0;m--) //先清除第二菜单的选项
+            selobj.options[m]=null*/
+             
+            for (i=0;i<group[x].length;i++){
+            //根据第一菜单的选定序号，丛控件数组中提取菜单选项放进第二菜单
+            selobj.options[i]=group[x][i];
+            //这里也可以创建新的对象，例如：selobj.options[i]=new Option(group[x][i].text,group[x][i].value) 
+            } 
+            selobj.options[0].selected=true
+            //选定第0号选项
+            } 
+            function go(){
+            //这个函数用来将窗口导航到指定的URL
+            location=selobj.options[selobj.selectedIndex].value
+            } 
+            </script> 
+           </form> 
+           咨询：
+          <p class="margin-t-02">点击查看详情：<span class="red padding-r-02"><b><a href="wwyy.blade_ hospitaldetails.html">医院一</a></b></span><span class="red padding-r-02"><b><a href="wwyy.blade_historyquiz.html">孙大圣医生</a></b></span></p>
+       
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3 col-xs-3 ">
+           标题
+        </div>
+        <div class="col-sm-9 col-xs-9 ">
+           <input type="text" id="consult-title"/>
+        </div>
+      </div>
+
+      <div class="row margin-t-02 consult-edit">
+        <div class="col-sm-12 col-xs-12 ">
+           <div class="greetings-box relative">您好！<span id="selected-doctor">孙大圣</span>医生
+              <div id="preview"></div>
+              <div class="sctp_box absolute absolute01" id="sctp_box">
+              <label class="addimg-label margin-r-02">
+
+                <i class="fa fa-plus-square-o"></i>
+               <!--  <input id="photoimg" type="file" name="photoimg" onclick="addimg()"  accept="image"  style="display:none"> -->
+              </label>
+           </div>
+           </div>
+           <form id="goon-consult-text"><textarea id="consult-text" rows="5" ></textarea></form>
+
+           <div class="button margin-t-02">
+                <span class="margin-r-02 padding-lr-04">提问</span>
+                <label id="set-privacy"><input id="set-privacy-input" type="checkbox" value=""/><span>设为隐私</span></label>
+                
+            </div>
+       </div>
+       
+      </div>
+
+    </div>
+    <div id="popbox" class="text-center">
+       <label><i class="fa fa-picture-o padding-lr-02"></i></label>
+       <label><i class="fa fa-camera padding-lr-02"></i></label>
+    </div>
+</body>
+</html>

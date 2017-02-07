@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- <meta name="description" content="Kanzi HTML5 Template"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>问问牙医_医疗机构详情页</title>
+<link rel="stylesheet" href="../css/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css"/>
+
+<script type="text/javascript" src="../js/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="../js/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/validate.js"></script>
+<script>
+    $(function(){
+    var tabnavL=$('.tabnav').length;
+    var tabL=$('.tab').length;
+  
+         $('.tabnav').click(function(){
+            var num = $(this).index();
+            $('.tabnav').removeClass('active');
+            $(this).addClass('active');
+            $('.tab').removeClass('active');
+            $('.tab').eq(num).addClass('active');
+         })
+
+
+         var imgW = $('.list img').width();
+         $('.list img').css('height',imgW);
+         
+        
+         $(".fold-on-off").click(function(){
+            if($(".fold-text").is(":hidden")){
+                $(".fold-text").slideDown("slow");
+                $(this).html("点击折叠详情");
+            }else{
+                $(".fold-text").slideUp("slow");
+                $(this).html("点击展开详情");
+            } 
+
+
+         })
+   
+  })
+</script>
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-12 col-xs-12 ">
+          <h4 class="relative text-center border-b-02 padding-b-02"><i class="fa fa-angle-left absolute absolute06 font-size-36"></i><b>医疗机构详情</b></h4>
+      </div>
+      </div>
+
+      <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <img  class="img-rounded" src="../images/doctorimg03.jpg"/>
+            </div>
+            <div class="col-sm-10 col-xs-10">
+                <ul>
+                  <li class="relative">
+                    <span class="d-name d-name-title">医疗机构名称</span>
+                    <div class="absolute absolute01 list-icon">
+                      <span class="padding-lr-01"><i class="fa fa-heart"></i>8493832</span>
+                      <span class="padding-lr-01"><i class="fa fa-comments-o"></i>359</span>
+                    </div>
+                  </li>
+
+                  <li>医院等级：一级甲等</li>
+                 
+                  <li class="fold-on-off">点击展开详情</li>
+                  <li class="fold-text">
+                    简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                  </li>
+                 </ul>
+                  
+            </div>
+        </div>
+
+
+
+      <div class="row">
+      <div class="col-sm-12 col-xs-12">
+       <div id="tabnav-bar" class="margin-t-03">
+         <span id="tabnav01" class="tabnav margin-r-01 active">关键字1</span>
+         <span id="tabnav02" class="tabnav margin-r-01">关键字2</span>
+         <input id="selected-tab" type="hidden"/>
+       </div>
+      </div>
+      </div>
+    
+       <div id="tab01" class="tab active">
+   
+        <div class="row list margin-t-03 border-b-01 padding-b-08">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg01.jpg"/></a>
+                <div class="list-icon text-center margin-t-01">
+                            <span class="padding-r-01"><i class="fa fa-heart"></i>666</span>
+                           <!--  <span class="padding-r-01"><i class="fa fa-comments-o"></i>333</span> -->
+                </div>
+            </div>
+            <div class="col-sm-10 col-xs-10">
+                <ul>
+                    <li><span class="d-name d-name-title"><a href="wwyy.blade_historyquiz.html">医生名字</a></span></li>
+                    <li>一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介</li>
+                    <li class="tag"><span>资历</span><span>职称</span><span>科室</span><span>专长</span></li>
+                    <li class="relative">
+                        <div class="absolute absolute01 button">
+                            <span class="margin-r-02"><a href="wwyy.blade_historyquiz.html">历史问答</a></span>
+                            <span class="margin-r-02"><a href="wwyy.blade_consult.html">我要咨询</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row list margin-t-03 border-b-01 padding-b-08">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg03.jpg"/></a>
+                <div class="list-icon text-center margin-t-01">
+                            <span class="padding-r-01"><i class="fa fa-heart"></i>666</span>
+                           <!--  <span class="padding-r-01"><i class="fa fa-comments-o"></i>333</span> -->
+                </div>
+            </div>
+            <div class="col-sm-10 col-xs-10">
+                <ul>
+                    <li><span class="d-name d-name-title"><a href="wwyy.blade_historyquiz.html">医生名字</a></span></li>
+                    <li>一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介</li>
+                    <li class="tag"><span>资历</span><span>职称</span><span>科室</span><span>专长</span></li>
+                    <li class="relative">
+                        <div class="absolute absolute01 button">
+                            <span class="margin-r-02"><a href="wwyy.blade_historyquiz.html">历史问答</a></span>
+                            <span class="margin-r-02"><a href="wwyy.blade_consult.html">我要咨询</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+     </div>
+
+
+     <div id="tab02" class="tab">
+      
+       <div class="row list margin-t-03 border-b-01 padding-b-08">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg02.jpg"/></a>
+                <div class="list-icon text-center margin-t-01">
+                            <span class="padding-r-01"><i class="fa fa-heart"></i>666</span>
+                           <!--  <span class="padding-r-01"><i class="fa fa-comments-o"></i>333</span> -->
+                </div>
+            </div>
+            <div class="col-sm-10 col-xs-10">
+                <ul>
+                    <li><span class="d-name d-name-title"><a href="wwyy.blade_historyquiz.html">医生名字</a></span></li>
+                    <li>一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介一句话简介</li>
+                    <li class="tag"><span>资历</span><span>职称</span><span>科室</span><span>专长</span></li>
+                    <li class="relative">
+                        <div class="absolute absolute01 button">
+                            <span class="margin-r-02"><a href="wwyy.blade_historyquiz.html">历史问答</a></span>
+                            <span class="margin-r-02"><a href="wwyy.blade_consult.html">我要咨询</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   
+     </div>
+     
+
+     
+      </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- <meta name="description" content="Kanzi HTML5 Template"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>问问牙医_咨询详情</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" /> 
+<link rel="stylesheet" href="../css/wwyy/style.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css"/>
+
+<script type="text/javascript" src="../js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-latest.js"></script>
+<script>
+    $(function(){
+         var imgW = $('.list img').width();
+         $('.list img').css('height',imgW);
+         
+        
+         $(".fold-on-off").click(function(){
+            if($(".fold-text").is(":hidden")){
+                $(".fold-text").slideDown("slow");
+                $('html, body').animate({scrollTop: $(document).height()}, 500); 
+                
+            }else{
+                $(".fold-text").slideUp("slow");
+                
+            } 
+
+
+         })
+   
+   
+
+  })
+
+  
+
+      $.fn.ImgZoomIn = function () {
+       
+      bgstr = '<div id="ImgZoomInBG" style=" background:#000000; filter:Alpha(Opacity=70); opacity:0.7; position:fixed; left:0; top:0; z-index:10000; width:100%; height:100%; display:none;"><iframe src="about:blank" frameborder="5px" scrolling="yes" style="width:100%; height:100%;"></iframe></div>';
+      //alert($(this).attr('src'));
+      imgstr = '<img id="ImgZoomInImage" src="' + $(this).attr('src')+'" onclick=$(\'#ImgZoomInImage\').hide();$(\'#ImgZoomInBG\').hide(); style="cursor:pointer; display:none; position:absolute; z-index:10001;" />';
+      if ($('#ImgZoomInBG').length < 1) {
+      $('body').append(bgstr);
+      }
+      if ($('#ImgZoomInImage').length < 1) {
+      $('body').append(imgstr);
+      }
+      else {
+      $('#ImgZoomInImage').attr('src', $(this).attr('src'));
+      }
+      //alert($(window).scrollLeft());
+      //alert( $(window).scrollTop());
+      $('#ImgZoomInImage').css({'width':'100%','height':'auto','top':'0'});
+
+      $('#ImgZoomInImage').css('left', $(window).scrollLeft() + ($(window).width() - $('#ImgZoomInImage').width()) / 2);
+      /*$('#ImgZoomInImage').css('top', $(window).scrollTop() + ($(window).height() - $('#ImgZoomInImage').height()) / 2);*/
+      $('#ImgZoomInBG').show();
+      $('#ImgZoomInImage').show();
+      };
+       
+      $(document).ready(function () {
+      $("#imgTest").bind("click", function () {
+      $(this).ImgZoomIn();
+
+      });
+      });
+
+      $(function(){
+        $(".imglist").each(function(){
+           var imgL = $(this).find(".exampleImg").length;
+           if(imgL == 1){
+                $(this).find(".exampleImg").css("margin","0 35%");
+           }else if(imgL == 2){
+                
+                $(this).find(".exampleImg").eq(0).css("margin","0 2.5% 0 17.5%");
+                $(this).find(".exampleImg").eq(1).css("margin","0 17.5% 0 2.5%");
+           }else{
+
+           }
+        });
+
+        
+        $(".qtime").parent("li").css("margin-top","-7px");
+        $(".qcontent").last().css("font-weight","700");
+        $(".list").last().removeClass("border-b-01");
+
+        setTimeout(function(){
+           $(".qcontent").last().animate({"font-weight":"400"});
+        }, 1000);
+        $(".thumbs-up i").one("click",function(e){
+           $(this).removeClass("fa-heart-o").addClass("fa-heart");
+           var num = parseInt($("#thumbs-up-num").text());
+           var j = num+1;
+           $("#thumbs-up-num").text(j);
+        })
+         
+
+         /*弹出上传图片弹出层*/
+          $(".addimg-label i.fa-plus-square-o").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+          e.stopPropagation();
+        }else{
+          e.cancelBubble = true;
+        }   
+          $(this).removeClass("fa-plus-square-o").addClass("fa-plus-square");
+          $("#popbox").animate({bottom:"0"});
+        });
+
+        $("#popbox").click(function(event){
+          var e=window.event || event;
+          if(e.stopPropagation){
+          e.stopPropagation();
+        }else{
+          e.cancelBubble = true;
+        }
+        });
+        document.onclick = function(){
+
+          $(".addimg-label i.fa-plus-square").removeClass("fa-plus-square").addClass("fa-plus-square-o");
+          $("#popbox").animate({bottom:"-102px"});
+        };
+
+        /*弹出上传图片弹出层*/
+
+
+      })
+
+     
+</script>
+    <link rel="stylesheet" href="../css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/js/jquery.min.js"></script>
+    <script src="../js/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+      <div class="row">
+      <div class="col-sm-12 col-xs-12 ">
+          <h4 class="relative text-center border-b-02 padding-b-02"><i class="fa fa-angle-left absolute absolute06 font-size-36"></i><b>咨询详情</b></h4>
+      </div>
+      </div>
+      <h5 class="text-center padding-b-02"><b>标题标题标题标题标题标题标题标题标题标题标题标题标题</b></h5>
+      
+      <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <img  class="img-rounded" src="../images/doctorimg03.jpg"/>
+                <div class="list-icon text-center margin-t-01 quizzer-name">提问者用户名11</div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问
+                  </li>
+                  <li class="imglist">
+                   <img class="exampleImg" src="../images/doctorimg04.jpg" onClick="$(this).ImgZoomIn();"/>
+                   <img class="exampleImg" src="../images/doctorimg01.jpg" onClick="$(this).ImgZoomIn();"/>
+                   <img class="exampleImg" src="../images/doctorimg02.jpg" onClick="$(this).ImgZoomIn();"/>
+                   <img class="exampleImg" src="../images/doctorimg03.jpg" onClick="$(this).ImgZoomIn();"/> 
+                
+                  
+                  </li>
+                </ul>
+             </div>
+        </div>
+        
+        <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg01.jpg"/></a>
+                <div class="list-icon text-center margin-t-01 left-side d-name"><a href="wwyy.blade_historyquiz.html">医生名字</a></div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                  </li>
+                </ul>
+             </div>
+        </div>
+
+            <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <img  class="img-rounded" src="../images/doctorimg03.jpg"/>
+                <div class="list-icon text-center margin-t-01 quizzer-name">提问者用户名11</div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问
+                  </li>
+                  <li class="imglist">
+                   
+                   <img class="exampleImg" src="../images/doctorimg01.jpg" onClick="$(this).ImgZoomIn();"/>
+                  </li>
+                </ul>
+             </div>
+        </div>
+        
+        <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg01.jpg"/></a>
+                <div class="list-icon text-center margin-t-01 left-side d-name"><a href="wwyy.blade_historyquiz.html">医生名字</a></div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                  </li>
+                </ul>
+             </div>
+        </div>
+
+            <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <img  class="img-rounded" src="../images/doctorimg03.jpg"/>
+                <div class="list-icon text-center margin-t-01 quizzer-name">提问者用户名11</div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问提问
+                  </li>
+                  <li class="imglist">
+                  
+                   <img class="exampleImg" src="../images/doctorimg02.jpg" onClick="$(this).ImgZoomIn();"/>
+                   <img class="exampleImg" src="../images/doctorimg03.jpg" onClick="$(this).ImgZoomIn();"/> 
+                
+                  
+                  </li>
+                </ul>
+             </div>
+        </div>
+        
+        <div class="row list margin-t-03 border-b-01 padding-b-02">
+            <div class="col-sm-2 col-xs-2">
+                <a href="wwyy.blade_historyquiz.html"><img class="img-rounded" src="../images/doctorimg01.jpg"/></a>
+                <div class="list-icon text-center margin-t-01 left-side d-name"><a href="wwyy.blade_historyquiz.html">医生名字</a></div>
+            </div>
+            <div class="col-sm-10 col-xs-10 qtext">
+                <ul>
+                  <li class="relative">
+                    <span class="qtime">2016-11-25</span>
+                  </li>
+                  <li class="qcontent">回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答
+                  </li>
+                </ul>
+             </div>
+        </div>
+
+        <div class="button margin-t-02" id="consult-bottom"><span class="margin-t-02 fold-on-off">继续咨询</span><span class="margin-t-02 thumbs-up"><i class="fa fa-heart-o"></i><b id="thumbs-up-num">4837</b></span></div>
+
+        
+
+      <div class="row margin-t-02 consult-edit fold-text">
+        <div class="col-sm-12 col-xs-12 ">
+           <div class="greetings-box relative">您好！<span id="selected-doctor">孙大圣</span>医生
+              <div id="preview"></div>
+              <div class="sctp_box absolute absolute01" id="sctp_box">
+              <label class="addimg-label margin-r-02">
+
+                <i class="fa fa-plus-square-o"></i>
+               <!--  <input id="photoimg" type="file" name="photoimg" onclick="addimg()"  accept="image"  style="display:none"> -->
+              </label>
+           </div>
+           </div>
+           <form id="goon-consult-text"><textarea id="consult-text" rows="5" ></textarea></form>
+
+           <div class="button margin-t-02">
+                <span class="margin-r-02 padding-lr-04">提问</span>
+                <label id="set-privacy"><input id="set-privacy-input" type="checkbox" value=""/><span>设为隐私</span></label>
+                
+            </div>
+       </div>
+       
+      </div>
+
+   </div>
+
+   <div id="popbox" class="text-center">
+       <label><i class="fa fa-picture-o padding-lr-02"></i></label>
+       <label><i class="fa fa-camera padding-lr-02"></i></label>
+    </div>
+
+    
+</body>
+</html>
